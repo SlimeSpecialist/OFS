@@ -500,8 +500,10 @@ SLOWEST,slowest,slowest
 LANGUAGE,Language,Language
 ACTION_RELOAD_TRANSLATION,Reload current translation,Reload current translation
 DIRECTORY,Directory,Directory
-HIGHLIGHT_TRESHOLD,Highlight treshold,Highlight treshold
+MAX_HIGHLIGHT_TRESHOLD,Max highlight treshold,Max highlight treshold
+MIN_HIGHLIGHT_TRESHOLD,Min highlight treshold,Min highlight treshold
 ENABLE_MAX_SPEED_HIGHLIGHT,Max speed highlight,Max speed highlight
+ENABLE_MIN_SPEED_HIGHLIGHT,Min speed highlight,Min speed highlight
 FPS_OVERRIDE,FPS override,FPS override
 TIME_SPENT,Time spent,Time spent
 SHOW_ACTION_LINES,Show lines,Show lines

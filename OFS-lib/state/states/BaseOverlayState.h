@@ -7,8 +7,13 @@ struct BaseOverlayState
     static constexpr auto StateName = "BaseOverlayState";
 
     ImColor MaxSpeedColor = ImColor(0, 0, 255, 255);
-    float MaxSpeedPerSecond = 400.f;
+    float MaxSpeedPerSecond = 550.f;
     bool ShowMaxSpeedHighlight = false;
+
+    ImColor MinSpeedColor = ImColor(127, 0, 255, 255);
+    float MinSpeedPerSecond = 34.f;
+    bool ShowMinSpeedHighlight = false;
+
     bool SyncLineEnable = false;
     bool SplineMode = false;
 
@@ -27,6 +32,9 @@ REFL_TYPE(BaseOverlayState)
     REFL_FIELD(MaxSpeedColor)
     REFL_FIELD(MaxSpeedPerSecond)
     REFL_FIELD(ShowMaxSpeedHighlight)
+    REFL_FIELD(MinSpeedColor)
+    REFL_FIELD(MinSpeedPerSecond)
+    REFL_FIELD(ShowMinSpeedHighlight)
     REFL_FIELD(SyncLineEnable)
     REFL_FIELD(SplineMode)
 REFL_END

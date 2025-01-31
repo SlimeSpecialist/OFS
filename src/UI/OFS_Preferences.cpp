@@ -71,7 +71,7 @@ bool OFS_Preferences::ShowPreferenceWindow() noexcept
 						SetTheme((OFS_Theme)state.currentTheme);
 						save = true;
 					}
-					
+
 					ImGui::Separator();
 
 					ImGui::TextWrapped(TR(PREFERENCES_TXT));
@@ -171,11 +171,12 @@ bool OFS_Preferences::ShowPreferenceWindow() noexcept
 				if (ImGui::BeginTabItem(TR(SCRIPTING)))
 				{
 					auto& overlayState = BaseOverlay::State();
+
 					if(ImGui::Checkbox(TR_ID("HighlightEnable", Tr::ENABLE_MAX_SPEED_HIGHLIGHT), &overlayState.ShowMaxSpeedHighlight)) {
 						save = true;
 					}
 					ImGui::BeginDisabled(!overlayState.ShowMaxSpeedHighlight);
-					if(ImGui::InputFloat(TR(HIGHLIGHT_TRESHOLD), &overlayState.MaxSpeedPerSecond)) {
+					if(ImGui::InputFloat(TR(MAX_HIGHLIGHT_TRESHOLD), &overlayState.MaxSpeedPerSecond)) {
 						save = true;
 					}
 					ImGui::ColorEdit3(TR_ID("HighlightColor", Tr::COLOR), &overlayState.MaxSpeedColor.Value.x, ImGuiColorEditFlags_None);
@@ -183,7 +184,20 @@ bool OFS_Preferences::ShowPreferenceWindow() noexcept
 						save = true;
 					}
 					ImGui::EndDisabled();
-					
+
+					if(ImGui::Checkbox(TR_ID("MinHighlightEnable", Tr::ENABLE_MIN_SPEED_HIGHLIGHT), &overlayState.ShowMinSpeedHighlight)) {
+						save = true;
+					}
+					ImGui::BeginDisabled(!overlayState.ShowMinSpeedHighlight);
+					if(ImGui::InputFloat(TR(MIN_HIGHLIGHT_TRESHOLD), &overlayState.MinSpeedPerSecond)) {
+						save = true;
+					}
+					ImGui::ColorEdit3(TR_ID("MinHighlightColor", Tr::COLOR), &overlayState.MinSpeedColor.Value.x, ImGuiColorEditFlags_None);
+					if(ImGui::IsItemDeactivatedAfterEdit()) {
+						save = true;
+					}
+					ImGui::EndDisabled();
+
 					ImGui::Separator();
 					if (ImGui::InputInt(TR(FAST_FRAME_STEP), &state.fastStepAmount, 1, 1)) {
 						save = true;
